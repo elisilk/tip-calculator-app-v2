@@ -13,7 +13,7 @@ import AppResults from '@/components/AppResults.vue'
     </header>
 
     <main class="app__main">
-      <div class="app__innner">
+      <div class="app__inner">
         <AppInputs />
         <AppResults />
       </div>
@@ -49,7 +49,7 @@ import AppResults from '@/components/AppResults.vue'
   padding-block: var(--main-block-size-padding);
 }
 
-.app__innner {
+.app__inner {
   max-inline-size: var(--form-inline-size-max);
   margin-inline: auto;
   display: grid;
@@ -70,14 +70,14 @@ import AppResults from '@/components/AppResults.vue'
     margin-block-end: var(--header-block-margin-start);
   }
 
-  .app__innner {
+  .app__inner {
     row-gap: var(--space-500); /* (m) 32px -> (t) 40px */
   }
 }
 
 /* viewport: tablet -> desktop */
 @media (min-width: 60rem) {
-  .app__innner {
+  .app__inner {
     display: grid;
     grid-template-columns: 379px 1fr;
     column-gap: var(--space-600); /* 48px */
