@@ -51,7 +51,8 @@ Users should be able to:
 - [Vite](https://vite.dev/)
 - [Vue](https://vuejs.org/)
 - [Pinia](https://pinia.vuejs.org/)
-- [Vitest](https://vitest.dev/)
+- [Vitest](https://vitest.dev/guide/)
+- [Vue Test Utils](https://test-utils.vuejs.org/guide/)
 
 ### What I learned
 
@@ -59,9 +60,6 @@ As always, so many cool :sunglasses: things. Here are some of the key resources 
 
 #### Testing the App
 
-- Tools
-  - [Vitest](https://vitest.dev/guide/)
-  - [Vue Test Utils](https://test-utils.vuejs.org/guide/)
 - Vue Testing Guides
   - [Guide to Unit Testing Vue Components (part 1)](https://testdriven.io/blog/vue-unit-testing/) + [Testing Pinia Data Stores in Vue (part 2)](https://testdriven.io/blog/vue-pinia-testing/)
     - [Vue Weather App repository](https://gitlab.com/patkennedy79/vue-weather-app) + [Live App](https://snazzy-taffy-cd99f4.netlify.app/)
@@ -106,7 +104,7 @@ As always, so many cool :sunglasses: things. Here are some of the key resources 
 
 Specific areas that the solution should be improved (known issues):
 
-- [ ] ...
+Hmm 🤔 ...
 
 Specific enhancements I'd like to make (feature requests):
 
@@ -120,13 +118,10 @@ More general ideas I want to consider:
 
 Hmm 🤔 ...
 
-- [ ] ...
-
 ### Useful resources
 
 - [Vue Guide](https://vuejs.org/guide/)
 - [Pinia Guide](https://pinia.vuejs.org/core-concepts/)
-- [Vue Router Guide](https://router.vuejs.org/guide/)
 - [Vite Guide](https://vite.dev/guide/)
 - [MDN Web Docs for CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Went here a lot to reference the different CSS properties and the shorthands, and all the great explanations about best practices.
 
