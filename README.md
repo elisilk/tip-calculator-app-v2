@@ -104,7 +104,9 @@ As always, so many cool :sunglasses: things. Here are some of the key resources 
 
 Specific areas that the solution should be improved (known issues):
 
-- [ ] Do something additional input validation/error checking. For example, on iPhone you can enter in letters and so that would result in an error that doesn't happen on the desktop browser.
+- [ ] Fix the block end spacing below the app logo in the desktop view
+- [ ] Fix the inline padding of the main section in the tablet view
+- [ ] Do some additional input validation/error checking. For example, on iPhone you can enter in letters and so that would result in an error that doesn't happen on the desktop browser.
 
 Specific enhancements I'd like to make (feature requests):
 

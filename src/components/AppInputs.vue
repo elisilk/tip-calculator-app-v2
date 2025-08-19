@@ -128,80 +128,78 @@ function handleFormReset() {
         >
       </div>
 
-      <fieldset class="input__fieldset">
-        <div class="input__container">
-          <legend class="input__legend">Select Tip %</legend>
+      <fieldset class="input__container input__fieldset">
+        <legend class="input__legend">Select Tip %</legend>
 
-          <div class="input__options">
-            <div
-              v-for="percentage in tipPercentages"
-              class="input__option-container"
-              :key="tipPercentageId(percentage)"
-            >
-              <input
-                class="input__option"
-                type="radio"
-                name="input-tip-percentage"
-                :id="tipPercentageId(percentage)"
-                :value="percentage"
-                required
-                @click="handleNonCustomInputOptionClick"
-                @blur="handleInputEvent"
-                v-model="tipCalculatorStore.tipPercentage"
-              />
-              <label class="input__option-label" :for="tipPercentageId(percentage)">{{
-                tipPercentageLabel(percentage)
-              }}</label>
-            </div>
-
-            <div class="input__option-container">
-              <input
-                class="input__option"
-                type="radio"
-                name="input-tip-percentage"
-                id="input-tip-percentage-custom"
-                value="custom"
-                ref="input-tip-percentage-custom"
-                @blur="handleInputEvent"
-                @click="handleCustomInputOptionClick"
-                v-model="tipCalculatorStore.tipPercentage"
-              />
-              <label
-                class="input__option-label input__option-label--custom"
-                for="input-tip-percentage-custom"
-                >Custom</label
-              >
-              <input
-                class="input__number input__number--custom"
-                id="input-tip-percentage-custom-value"
-                name="input-tip-percentage-custom-value"
-                type="number"
-                min="0"
-                placeholder="Custom"
-                tabindex="-1"
-                ref="input-tip-percentage-custom-value"
-                @blur="handleInputEvent"
-                @click="handleCustomInputValueClick"
-                v-model="tipCalculatorStore.tipPercentageCustom"
-              />
-            </div>
+        <div class="input__options">
+          <div
+            v-for="percentage in tipPercentages"
+            class="input__option-container"
+            :key="tipPercentageId(percentage)"
+          >
+            <input
+              class="input__option"
+              type="radio"
+              name="input-tip-percentage"
+              :id="tipPercentageId(percentage)"
+              :value="percentage"
+              required
+              @click="handleNonCustomInputOptionClick"
+              @blur="handleInputEvent"
+              v-model="tipCalculatorStore.tipPercentage"
+            />
+            <label class="input__option-label" :for="tipPercentageId(percentage)">{{
+              tipPercentageLabel(percentage)
+            }}</label>
           </div>
 
-          <span
-            v-if="isInputInvalid('input-tip-percentage')"
-            class="input__error"
-            id="input-tip-percentage-error"
-            aria-live="polite"
-            >{{ inputErrorMessage('input-tip-percentage') }}</span
-          >
-          <span
-            v-if="isInputInvalid('input-tip-percentage-custom-value')"
-            class="input__error"
-            id="input-tip-percentage-custom-value-error"
-            aria-live="polite"
-            >{{ inputErrorMessage('input-tip-percentage-custom-value') }}</span
-          >
+          <div class="input__option-container">
+            <input
+              class="input__option"
+              type="radio"
+              name="input-tip-percentage"
+              id="input-tip-percentage-custom"
+              value="custom"
+              ref="input-tip-percentage-custom"
+              @blur="handleInputEvent"
+              @click="handleCustomInputOptionClick"
+              v-model="tipCalculatorStore.tipPercentage"
+            />
+            <label
+              class="input__option-label input__option-label--custom"
+              for="input-tip-percentage-custom"
+              >Custom</label
+            >
+            <input
+              class="input__number input__number--custom"
+              id="input-tip-percentage-custom-value"
+              name="input-tip-percentage-custom-value"
+              type="number"
+              min="0"
+              placeholder="Custom"
+              tabindex="-1"
+              ref="input-tip-percentage-custom-value"
+              @blur="handleInputEvent"
+              @click="handleCustomInputValueClick"
+              v-model="tipCalculatorStore.tipPercentageCustom"
+            />
+          </div>
         </div>
+
+        <span
+          v-if="isInputInvalid('input-tip-percentage')"
+          class="input__error"
+          id="input-tip-percentage-error"
+          aria-live="polite"
+          >{{ inputErrorMessage('input-tip-percentage') }}</span
+        >
+        <span
+          v-if="isInputInvalid('input-tip-percentage-custom-value')"
+          class="input__error"
+          id="input-tip-percentage-custom-value-error"
+          aria-live="polite"
+          >{{ inputErrorMessage('input-tip-percentage-custom-value') }}</span
+        >
       </fieldset>
 
       <div class="input__container">
