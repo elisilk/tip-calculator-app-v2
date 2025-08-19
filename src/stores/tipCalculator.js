@@ -16,13 +16,31 @@ export const useTipCalculatorStore = defineStore('tipCalculator', () => {
       billSubtotal.value !== null || numberOfPeople.value !== null || tipPercentage.value !== null,
   )
 
-  const isValid = computed(
-    () =>
+  const isValid = computed(() => {
+    // Check if billSubtotal is a positive number
+    const validBillSubtotal =
       billSubtotal.value !== null &&
+      typeof billSubtotal.value === 'number' &&
+      billSubtotal.value > 0
+
+    // Check if numberOfPeople is a positive integer
+    const validNumberOfPeople =
       numberOfPeople.value !== null &&
-      numberOfPeople.value > 0 &&
-      tipPercentage.value !== null,
-  )
+      Number.isInteger(numberOfPeople.value) &&
+      numberOfPeople.value > 0
+
+    // Check if tipPercentage is a valid nonnegative number
+    const validTipPercentage =
+      tipPercentage.value !== null &&
+      (tipPercentage.value === 'custom'
+        ? tipPercentageCustom.value !== null &&
+          typeof tipPercentageCustom.value === 'number' &&
+          tipPercentageCustom.value >= 0
+        : typeof tipPercentage.value === 'number' && tipPercentage.value >= 0)
+
+    // Form is valid only if all of the inputs are valid
+    return validBillSubtotal && validNumberOfPeople && validTipPercentage
+  })
 
   // getters -- calculated intermediate quantities
 

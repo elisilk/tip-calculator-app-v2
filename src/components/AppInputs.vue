@@ -16,8 +16,11 @@ const customTipPercentageOption = useTemplateRef('input-tip-percentage-custom')
 const customTipPercentageValue = useTemplateRef('input-tip-percentage-custom-value')
 
 function handleNonCustomInputOptionClick() {
+  console.log('clicked noncustom input percentage option')
   customTipPercentageValue.value.tabIndex = -1
-  tipCalculatorStore.tipPercentageCustom = null
+  tipCalculatorStore.$patch({
+    tipPercentageCustom: null,
+  })
 }
 
 function handleCustomInputOptionClick() {
@@ -33,6 +36,7 @@ const tipCalculatorForm = useTemplateRef('tip-calculator-form')
 
 const errorMessages = {
   'input-bill-subtotal': {
+    badInput: 'Must be a number',
     valueMissing: 'Fill in',
     rangeUnderflow: 'Must be > 0',
   },
@@ -41,11 +45,13 @@ const errorMessages = {
   },
   'input-tip-percentage-custom-value': {
     valueMissing: 'Fill in',
+    badInput: 'Must be a number',
     stepMismatch: 'Use a whole number',
     rangeUnderflow: 'Must be > 0',
   },
   'input-number-of-people': {
     valueMissing: 'Fill in',
+    badInput: 'Must be a number',
     stepMismatch: 'Use a whole number',
     rangeUnderflow: 'Must be > 0',
     // rangeUnderflow: "Can't be zero", // the text used in the Figma design file
@@ -57,6 +63,7 @@ const errors = ref({})
 function validateInput(input) {
   const inputName = input.name
   const inputIsValid = input.validity.valid
+
   inputIsValid
     ? delete errors.value[inputName] // input is valid, so clear errors for this input
     : (errors.value[inputName] = validityError(input)) // input not valid, so add error for this input
