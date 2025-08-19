@@ -17,6 +17,7 @@ const customTipPercentageValue = useTemplateRef('input-tip-percentage-custom-val
 
 function handleNonCustomInputOptionClick() {
   customTipPercentageValue.value.tabIndex = -1
+  tipCalculatorStore.tipPercentageCustom = null
 }
 
 function handleCustomInputOptionClick() {
