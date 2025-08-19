@@ -9,7 +9,7 @@ export const toCurrencyString = (num) =>
 export function validityError(input) {
   if (input.validity.valid) return null
 
-  for (var key in input.validity) {
+  for (const key in input.validity) {
     if (input.validity[key]) return key
   }
 
