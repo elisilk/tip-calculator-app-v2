@@ -135,11 +135,9 @@ function handleFormReset() {
         >
       </div>
 
-      <fieldset
-        class="input__container input__fieldset"
-        aria-labelledby="input-tip-percentage-group-label"
-      >
-        <div class="input__legend" id="input-tip-percentage-group-label">Select Tip %</div>
+      <fieldset class="input__container input__fieldset">
+        <legend class="sr-only">Select Tip %</legend>
+        <div class="input__legend" aria-hidden="true">Select Tip %</div>
 
         <div class="input__options">
           <div

@@ -106,7 +106,23 @@ Specific areas that the solution should be improved (known issues):
 
 - [x] Fix the block end spacing below the app logo in the desktop view
 - [ ] Fix the inline padding of the main section in the tablet view
-- [ ] Do some additional input validation/error checking. For example, on iPhone you can enter in letters and so that would result in an error that doesn't happen on the desktop browser.
+- [ ] Do some additional input validation/error checking.
+- [ ] Fix issue where the options tip percentage and the custom tip percentage errors should be coordinated (so that if one is present, the other should be cleared, and vice versa)
+  - Relatedly, if the custom tip percentage option is chosen, but no custom value is given, there should be a valueMissing error, but currently there is not.
+  - Should that custom input number be required? If so, then if one of the standard options is checked, how do we know to ignore this?
+- [x] Fix issue on Safari where user can enter in letters and so that should result in an error that doesn't happen on the Chrome browser (which doesn't even let those characters be entered).
+  - Fixed the issue by looking specifically for the [ValidityState: badInput property](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState/badInput) and prioritizing that over the [ValidityState: valueMissing property](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState/valueMissing)
+  - [`<input type="number">` > Validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/number#validation)
+- [x] Fix issue where the custom tip percentage input was supposed to be cleared when one of the standard tip percentage options was chosen (so as to clear up any confusion), but was not clearing.
+  - Used the [Pinia $patch method](https://pinia.vuejs.org/core-concepts/state.html#Mutating-the-state), which seems to do the trick.
+- [x] Fix grid positioning of the legend element
+  - Seems like there are no great solutions for this known issue, but Adrian Roselli seems to have done the most thinking on it, and so I followed his approach of: Visually hiding the `<legend>` and replicating its content into a node in the `<fieldset>` and then adding `aria-hidden="true"` to that node.
+  - [Use Legend and Fieldset](https://adrianroselli.com/2022/07/use-legend-and-fieldset.html)
+  - [Fieldsets, Legends and Screen Readers again](https://www.tpgi.com/fieldsets-legends-and-screen-readers-again/)
+  - [`display: contents`](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_contents)
+  - [caniuse > CSS display: contents](https://caniuse.com/css-display-contents)
+  - [More accessible markup with display: contents](https://hidde.blog/more-accessible-markup-with-display-contents/)
+  - [Display: Contents Is Not a CSS Reset](https://adrianroselli.com/2018/05/display-contents-is-not-a-css-reset.html)
 
 Specific enhancements I'd like to make (feature requests):
 
