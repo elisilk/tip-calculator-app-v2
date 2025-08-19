@@ -57,7 +57,7 @@ const tipCalculatorStore = useTipCalculatorStore()
   color: var(--color-text-secondary);
   border-radius: var(--br-300);
 
-  padding: var(--space-300);
+  padding: var(--space-300); /* (m) b/i 24px -> (t) b 24px i 32px */
 
   display: grid;
   grid-template-rows: min-content 1fr;
@@ -135,6 +135,7 @@ const tipCalculatorStore = useTipCalculatorStore()
 /* viewport: mobile -> tablet */
 @media (min-width: 40rem) {
   .results {
+    padding: var(--space-300) var(--space-400); /* (m) b/i 24px -> (t) b 24px i 32px */
     gap: var(--space-200); /* (m) 32px -> (t) 16px */
   }
 

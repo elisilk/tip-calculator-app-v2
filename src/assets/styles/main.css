@@ -72,6 +72,8 @@
 @media (min-width: 60rem) {
   :root {
     --main-block-size-padding: var(--space-400); /* (m) 32px -> (t) 48px -> (d) 32px */
+
+    --header-block-margin-end: 5.4375rem; /* (m/t) 40px -> (d) 87px */
   }
 }
 
