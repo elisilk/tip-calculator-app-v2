@@ -16,7 +16,6 @@ const customTipPercentageOption = useTemplateRef('input-tip-percentage-custom')
 const customTipPercentageValue = useTemplateRef('input-tip-percentage-custom-value')
 
 function handleNonCustomInputOptionClick() {
-  console.log('clicked noncustom input percentage option')
   customTipPercentageValue.value.tabIndex = -1
   tipCalculatorStore.$patch({
     tipPercentageCustom: null,
