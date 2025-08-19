@@ -1,0 +1,127 @@
+@import '@/assets/styles/base.css';
+
+/* semantic properties */
+:root {
+  /* colors */
+  /* colors -- backgrounds */
+  --color-background-body: hsl(var(--color-grey-200));
+  --color-background-main: hsl(var(--color-white));
+  --color-background-results: hsl(var(--color-green-900));
+
+  --color-background-input-number: hsl(var(--color-grey-50));
+  --color-background-input-option-label: hsl(var(--color-green-900));
+  --color-background-input-option-label-selected: hsl(var(--color-green-400));
+  --color-background-input-option-label-active: hsl(var(--color-green-200));
+  --color-background-input-custom: hsl(var(--color-grey-50));
+
+  --color-background-button: hsl(var(--color-green-400));
+  --color-background-button-active: hsl(var(--color-green-200));
+  --color-background-button-disabled: hsl(var(--color-green-750));
+
+  /* colors -- text */
+  --color-text-primary: hsl(var(--color-grey-500));
+  --color-text-secondary: hsl(var(--color-white));
+
+  --color-text-input-label: hsl(var(--color-grey-500));
+  --color-text-input-value: hsl(var(--color-green-900));
+  --color-text-input-placeholder: hsl(var(--color-green-900) / 35%);
+  --color-text-input-outline: hsl(var(--color-green-400));
+  --color-text-input-error: hsl(var(--color-orange-400));
+
+  --color-text-input-option-label: hsl(var(--color-white));
+  --color-text-input-option-label-selected: hsl(var(--color-green-900));
+  --color-text-input-option-label-active: hsl(var(--color-green-900));
+  --color-text-input-custom: hsl(var(--color-green-550));
+
+  --color-text-result-label: hsl(var(--color-white));
+  --color-text-result-sublabel: hsl(var(--color-grey-400));
+  --color-text-result-value: hsl(var(--color-green-400));
+
+  --color-text-button: hsl(var(--color-green-900));
+  --color-text-button-disabled: hsl(var(--color-green-800));
+
+  /* colors -- other */
+
+  /* sizing/spacing */
+
+  /* app defaults */
+  --main-inline-size-max: 57.5rem; /* 920px */
+  --main-inline-size-gutter: 0; /* (m) 0px -> (t) 80px */
+  --main-inline-size-padding: var(--space-300); /* (m) 24px -> (t) 80px -> (d) 32px */
+  --main-block-size-padding: var(--space-400); /* (m) 32px -> (t) 48px -> (d) 32px */
+
+  --form-inline-size-max: 52.5rem; /* 840px */
+
+  --header-block-margin-start: 3.125rem; /* 50px */
+  --header-block-margin-end: 2.5rem; /* (m/t) 40px -> (d) 87px */
+
+  --input-padding-inline: var(--space-200); /* 16px */
+  --input-padding-block: var(--space-100); /* 8px */
+}
+
+/* viewport: mobile -> tablet */
+@media (min-width: 40rem) {
+  :root {
+    --main-inline-size-gutter: var(--space-1000); /* (m) 0px -> (t) 80px */
+    --main-inline-size-padding: var(--space-400); /* (m) 24px -> (t) 80px -> (d) 32px */
+    --main-block-size-padding: var(--space-600); /* (m) 32px -> (t) 48px -> (d) 32px */
+  }
+}
+
+/* viewport: tablet -> desktop */
+@media (min-width: 60rem) {
+  :root {
+    --main-block-size-padding: var(--space-400); /* (m) 32px -> (t) 48px -> (d) 32px */
+  }
+}
+
+/* -------------------- */
+/* Typography           */
+/* -------------------- */
+
+.text-preset1 {
+  font-size: var(--fs-800);
+  line-height: var(--lh-800);
+  letter-spacing: var(--ls-800);
+}
+
+.text-preset2 {
+  font-size: var(--fs-700);
+  line-height: var(--lh-700);
+  letter-spacing: var(--ls-700);
+}
+
+.text-preset3 {
+  font-size: var(--fs-600);
+  line-height: var(--lh-600);
+}
+
+.text-preset4 {
+  font-size: var(--fs-500);
+  line-height: var(--lh-500);
+}
+
+.text-preset5 {
+  font-size: var(--fs-400);
+  line-height: var(--lh-400);
+}
+
+.text-preset6 {
+  font-size: var(--fs-300);
+  line-height: var(--lh-300);
+}
+
+/* -------------------- */
+/* Body / App           */
+/* -------------------- */
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-background-body);
+
+  font-family: var(--ff-base);
+  font-weight: var(--fw-bold);
+
+  margin: 0;
+  padding: 0;
+}
