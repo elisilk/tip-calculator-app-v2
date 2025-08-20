@@ -37,6 +37,8 @@ const tipCalculatorStore = useTipCalculatorStore()
       </div>
     </div>
 
+    <button type="submit" form="tip-calculator-form" class="sr-only" tabindex="-1">Submit</button>
+
     <button
       type="reset"
       form="tip-calculator-form"
@@ -45,8 +47,6 @@ const tipCalculatorStore = useTipCalculatorStore()
     >
       Reset
     </button>
-
-    <button type="submit" form="tip-calculator-form" class="sr-only" tabindex="-1">Submit</button>
   </section>
 </template>
 
