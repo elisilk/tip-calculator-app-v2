@@ -15,16 +15,24 @@ const customTipPercentageOption = useTemplateRef('input-tip-percentage-custom')
 
 const customTipPercentageValue = useTemplateRef('input-tip-percentage-custom-value')
 
+const isCustomTipPercentageChecked = computed(() => tipCalculatorStore.tipPercentage === 'custom')
+
+const customTipPercentageValueTabIndex = computed(() =>
+  isCustomTipPercentageChecked.value ? 0 : -1,
+)
+
 function handleNonCustomInputOptionClick() {
-  customTipPercentageValue.value.tabIndex = -1
+  delete errors.value['input-tip-percentage']
+  delete errors.value['input-tip-percentage-custom-value']
   tipCalculatorStore.$patch({
     tipPercentageCustom: null,
   })
+  customTipPercentageValue.value.value = ''
 }
 
 function handleCustomInputOptionClick() {
+  delete errors.value['input-tip-percentage']
   customTipPercentageValue.value.focus()
-  customTipPercentageValue.value.tabIndex = 0
 }
 
 function handleCustomInputValueClick() {
@@ -74,9 +82,22 @@ function handleInputEvent(event) {
 
 const isInputInvalid = computed(() => (inputName) => inputName in errors.value)
 
+const isTipPercentageInputInvalid = computed(() => {
+  return (
+    isInputInvalid.value('input-tip-percentage') ||
+    isInputInvalid.value('input-tip-percentage-custom-value')
+  )
+})
+
 const inputErrorMessage = computed(
   () => (inputName) => errorMessages[inputName][errors.value[inputName]],
 )
+
+const tipPercentageInputErrorMessage = computed(() => {
+  if (isInputInvalid.value('input-tip-percentage-custom-value'))
+    return inputErrorMessage.value('input-tip-percentage-custom-value')
+  else return inputErrorMessage.value('input-tip-percentage')
+})
 
 function handleFormSubmit() {
   Array.from(tipCalculatorForm.value.elements)
@@ -185,8 +206,9 @@ function handleFormReset() {
               type="number"
               min="0"
               placeholder="Custom"
-              tabindex="-1"
               ref="input-tip-percentage-custom-value"
+              :required="isCustomTipPercentageChecked"
+              :tabindex="customTipPercentageValueTabIndex"
               @blur="handleInputEvent"
               @click="handleCustomInputValueClick"
               v-model="tipCalculatorStore.tipPercentageCustom"
@@ -195,18 +217,11 @@ function handleFormReset() {
         </div>
 
         <span
-          v-if="isInputInvalid('input-tip-percentage')"
+          v-if="isTipPercentageInputInvalid"
           class="input__error"
           id="input-tip-percentage-error"
           aria-live="polite"
-          >{{ inputErrorMessage('input-tip-percentage') }}</span
-        >
-        <span
-          v-if="isInputInvalid('input-tip-percentage-custom-value')"
-          class="input__error"
-          id="input-tip-percentage-custom-value-error"
-          aria-live="polite"
-          >{{ inputErrorMessage('input-tip-percentage-custom-value') }}</span
+          >{{ tipPercentageInputErrorMessage }}</span
         >
       </fieldset>
 
